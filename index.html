@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Préstamos - MarckBusiness</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Logo MarckBusiness" class="logo">
+  <h1>MarckBusiness - Sistema de Préstamos</h1>
+</header>
+
+<div class="dashboard">
+  <aside class="sidebar">
+    <button class="nav-btn" data-page="clientes">Clientes</button>
+    <button class="nav-btn" data-page="prestamos">Préstamos</button>
+    <button class="nav-btn" data-page="pagos">Pagos</button>
+    <button class="nav-btn" data-page="reportes">Historial / Reportes</button>
+  </aside>
+
+  <main class="content">
+    <!-- CLIENTES -->
+    <section id="clientes" class="page active">
+      <h2>Clientes</h2>
+      <form id="clienteForm">
+        <input type="text" id="nombreCliente" placeholder="Nombre completo" required>
+        <input type="text" id="telefonoCliente" placeholder="Teléfono">
+        <input type="email" id="emailCliente" placeholder="Correo electrónico">
+        <textarea id="notasCliente" placeholder="Notas"></textarea>
+        <button type="button" id="crearCliente">Agregar Cliente</button>
+      </form>
+      <div id="listaClientes"></div>
+    </section>
+
+    <!-- PRÉSTAMOS -->
+    <section id="prestamos" class="page">
+      <h2>Nuevo Préstamo</h2>
+      <form id="loanForm">
+        <select id="clientePrestamo" required>
+          <option value="">Selecciona un cliente</option>
+        </select>
+        <input type="number" id="monto" placeholder="Monto (Q)" min="1" required>
+        <input type="number" id="interes" placeholder="Interés (%)" min="0" step="0.1" required>
+        <input type="number" id="plazo" placeholder="Plazo (meses)" min="1" required>
+        <button type="button" id="crearPrestamo">Crear Préstamo</button>
+      </form>
+      <div id="historialPrestamos"></div>
+    </section>
+
+    <!-- PAGOS -->
+    <section id="pagos" class="page">
+      <h2>Registrar Pago</h2>
+      <form id="pagoForm">
+        <select id="prestamoPago" required>
+          <option value="">Selecciona un préstamo</option>
+        </select>
+        <input type="number" id="montoPago" placeholder="Monto del pago" min="1" required>
+        <button type="button" id="registrarPago">Registrar Pago</button>
+      </form>
+      <div id="historialPagos"></div>
+    </section>
+
+    <!-- REPORTES -->
+    <section id="reportes" class="page">
+      <h2>Reportes / Historial de crédito</h2>
+      <div id="reporteResumen"></div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <p>© 2025 MarckBusiness</p>
+</footer>
+
+<!-- Modal Clave -->
+<div id="modalClave" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Ingrese la clave para eliminar</h3>
+    <input type="password" id="claveEliminar" placeholder="Clave">
+    <button id="confirmarEliminar">Confirmar</button>
+  </div>
+</div>
+
+</body>
+</html>
